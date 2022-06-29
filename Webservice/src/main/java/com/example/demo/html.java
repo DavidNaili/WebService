@@ -1,7 +1,10 @@
 package com.example.demo;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
@@ -30,13 +33,13 @@ public class html{
             e.printStackTrace();
         }
 		
-		String html = "<div><h1>Upload von .CSV Dateien</h1><form name=\"uploadformular\" enctype=\"multipart/form-data\" action=\"Upload.php\" method=\"post\"  >\r\n"
+		String html = "<div><h1>Upload von .CSV Dateien</h1><form name=\"uploadformular\" enctype=\"multipart/form-data\" action=\"Webservice/commons-fileupload-1.4\" method=\"post\"  >\r\n"
 				+ "  Datei:\r\n"
-				+ "  <input id=\"upload\" name=\"Upload\" class=\"w3-input\" type=\"file\" accept=\".csv\">\r\n"
+				+ "  <input id=\"upload\" name=\"uploaddatei\" class=\"w3-input\" type=\"file\" accept=\".csv\">\r\n"
 				+ "  <input type=\"submit\" name=\"Submit\" value=\"Datei hochladen\">\r\n"
 				+ "	</form></div>";
 
-		File f = new File("F:/Webservice.html");
+		File f = new File("F:/Webservice/WebService/Webservice/Webservice.html");
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(f));
 			bw.write(html);
