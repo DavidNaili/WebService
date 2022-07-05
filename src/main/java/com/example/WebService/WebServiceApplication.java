@@ -25,7 +25,7 @@ public class WebServiceApplication {
 		throws IllegalStateException, IOException {
 
 		String baseDir = "F:/Projekt/WebService/src/main/resources/static/upload/";
-		file.transferTo(new File(baseDir + "myfile.csv"));
+		file.transferTo(new File(baseDir + file.getOriginalFilename()));
 		return "redirect:/index";
 	}
 
