@@ -15,9 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class WebServiceApplication {
 
-	@GetMapping("/index")
-	public String index(){
-		return "index";
+	@GetMapping("/success")
+	public String success(){
+		return "success";
 	}
 	@GetMapping("/error")
 	public String error(){
@@ -32,7 +32,7 @@ public class WebServiceApplication {
 	
 	if (file.getOriginalFilename().endsWith(".csv")){
 		file.transferTo(new File(baseDir + file.getOriginalFilename()));
-		return "redirect:/index";
+		return "redirect:/success";
 	}
 	else
 	{return "redirect:/error";}
