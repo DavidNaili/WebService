@@ -19,14 +19,23 @@ public class WebServiceApplication {
 	public String index(){
 		return "index";
 	}
+	@GetMapping("/error")
+	public String error(){
+		return "error";
+	}
 
 	@PostMapping("/upload")
 	public String uploadFile(@RequestParam("file")MultipartFile file)
 		throws IllegalStateException, IOException {
 
 		String baseDir = "F:/Projekt/WebService/src/main/resources/static/upload/";
+	
+	if (file.getOriginalFilename().endsWith(".csv")){
 		file.transferTo(new File(baseDir + file.getOriginalFilename()));
 		return "redirect:/index";
+	}
+	else
+	{return "redirect:/error";}
 	}
 
 	public static void main(String[] args) {
