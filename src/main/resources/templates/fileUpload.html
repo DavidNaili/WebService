@@ -1,0 +1,37 @@
+<html>
+
+    <head>
+    <title>Upload von CSV Files</title>
+    </head>
+
+    <body>
+
+<c:if test="${Error}">
+    <div class="alert alert-error">
+        <button data-dismiss="alert" class="close" type="button">x</button>
+        <strong>Dieser Dateityp ist nicht erlaubt!</strong>
+    </div>
+</c:if>
+
+<c:if test="${mimeError}">
+    <div class="alert alert-error">
+        <button data-dismiss="alert" class="close" type="button">x</button>
+        <strong>Dieser Dateityp ist nicht erlaubt!</strong>
+    </div>
+</c:if>
+
+<c:if test="${success}">
+    <div class="alert alert-success">
+        <button data-dismiss="alert" class="close" type="button">x</button>
+        <strong>Datei erfolgreich hochgeladen</strong>
+    </div>
+</c:if>
+
+    <h1>Upload von .CSV Dateien</h1>
+        <form action="uploadFile" method="POST" enctype="multipart/form-data">
+          Datei:
+            <input type="file" name="file" accept=".csv">
+            <button type="submit"> Datei hochladen </button>
+        </form>
+    </body>
+</html>
