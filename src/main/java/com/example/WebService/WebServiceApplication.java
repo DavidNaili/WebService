@@ -32,6 +32,15 @@ public class WebServiceApplication{
         return "fileUpload";
 	}
 
+	/**
+	 * @param file
+	 * @param model
+	 * @return
+	 * @throws MagicParseException
+	 * @throws MagicMatchNotFoundException
+	 * @throws MagicException
+	 * @throws IOException
+	 */
 	@RequestMapping (value = "/uploadFile", method=RequestMethod.POST)
 	public String saveFile(@RequestParam("file") MultipartFile file, Model model)
 		throws MagicParseException, MagicMatchNotFoundException, MagicException, IOException {
@@ -39,7 +48,7 @@ public class WebServiceApplication{
 
 			String baseDir = "F:/Projekt/WebService/src/main/resources/static/upload/";
 	
-	if (!file.getOriginalFilename().matches("^.*(png)$")){
+	if (!file.getOriginalFilename().matches("^.*(jpg, png)$")){
 			model.addAttribute("Error", Boolean.TRUE);
 			return "fileUpload";
 	}

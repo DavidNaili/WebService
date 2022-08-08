@@ -6,7 +6,7 @@
 
     <body>
 
-<c:if test="${Error}">
+<c:if test="${fileError}">
     <div class="alert alert-error">
         <button data-dismiss="alert" class="close" type="button">x</button>
         <strong>Dieser Dateityp ist nicht erlaubt!</strong>
@@ -28,7 +28,7 @@
 </c:if>
 
     <h1>Upload von .CSV Dateien</h1>
-        <form action="uploadFile" method="POST" enctype="multipart/form-data">
+        <form method="POST" action="uploadFile" enctype="multipart/form-data">
           Datei:
             <input type="file" name="file" accept=".csv">
             <button type="submit"> Datei hochladen </button>
