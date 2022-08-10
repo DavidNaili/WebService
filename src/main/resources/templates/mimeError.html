@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html dir="ltr" lang="de-de">
+    <head>
+		<title>MimeError</title>
+	</head>
+    <body>
+        <c:if WebService="${mimeError}">
+            <div class="alert alert-error">
+                <button data-dismiss="alert" class="close" type="button">x</button>
+                <strong>Dieser Dateityp ist nicht erlaubt!</strong>
+            </div>
+        </c:if>
+        <input type="button" value="Zurück" onClick="javascript:history.back()">
+    </body>
+</html>

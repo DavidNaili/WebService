@@ -26,4 +26,28 @@ static String password = "nami1980";
     connection.close();
 		}
 
+	public static String getJdbcURL() {
+		return jdbcURL;
+	}
+
+	public static void setJdbcURL(String jdbcURL) {
+		WebServiceApplication.jdbcURL = jdbcURL;
+	}
+
+	public static String getUsername() {
+		return username;
+	}
+
+	public static void setUsername(String username) {
+		WebServiceApplication.username = username;
+	}
+
+	public static String getPassword() {
+		return password;
+	}
+
+	public static void setPassword(String password) {
+		WebServiceApplication.password = password;
+	}
+
 	}

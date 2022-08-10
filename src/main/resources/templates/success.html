@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html dir="ltr" lang="de-de">
+    <head>
+		<title>Success</title>
+	</head>
+    <body>
+        <c:if WebService="${success}">
+            <div class="alert alert-success">
+                <button data-dismiss="alert" class="close" type="button">x</button>
+                <strong>Datei erfolgreich hochgeladen</strong>
+            </div>
+        </c:if>
+        <input type="button" value="Zurück" onClick="javascript:history.back()">
+    </body>
+</html>

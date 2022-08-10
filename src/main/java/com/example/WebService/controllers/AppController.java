@@ -3,7 +3,10 @@ package com.example.WebService.controllers;
 
 import java.io.File;
 import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,20 +43,20 @@ public class AppController {
 		throws MagicParseException, MagicMatchNotFoundException, MagicException, IOException {
 			System.out.println("--------" + file.getOriginalFilename());
 	
-	if (!file.getOriginalFilename().matches("^.*(png)$")){
+	if (!file.getOriginalFilename().matches("^.*(png, apng, jpg, jpeg, pdf, gif, xls, zip, xml, css, html, php, plain, xml, mpeg, ogg)$")){
 			model.addAttribute("fileError", Boolean.TRUE);
-			return "fileUpload";
+			return "fileError";
 	}
-	final String mimeType = Magic.getMagicMatch(file.getBytes()).getMimeType();
-	if (!mimeType.equalsIgnoreCase(MimeTypes.CSV)){
+	String mimeType = Magic.getMagicMatch(file.getBytes()).getMimeType();
+	if (!mimeType.equalsIgnoreCase(MimeTypes.IMAGE_PNG)){
 		model.addAttribute("mimeError", Boolean.TRUE);
-		return "fileUpload";
+		return "mimeError";
 	}
 	
 	String baseDir = "F:/Projekt/WebService/src/main/resources/static/upload/";
 	model.addAttribute("success", Boolean.TRUE);
 	file.transferTo(new File(baseDir + file.getOriginalFilename()));
-	return "fileUpload";
+	return "success";
 }
     
 }

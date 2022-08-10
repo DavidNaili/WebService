@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html dir="ltr" lang="de-de">
 
     <head>
     <title>Upload von CSV Files</title>
@@ -13,26 +13,5 @@
             <input type="file" name="file" accept=".csv">
             <button type="submit"> Datei hochladen </button>
         </form>
-
-<c:if WebService="${fileError}">
-    <div class="alert alert-error">
-        <button data-dismiss="alert" class="close" type="button">x</button>
-        <strong>Dieser Dateityp ist nicht erlaubt!</strong>
-    </div>
-</c:if>
-
-<c:if WebService="${mimeError}">
-    <div class="alert alert-error">
-        <button data-dismiss="alert" class="close" type="button">x</button>
-        <strong>Dieser Dateityp ist nicht erlaubt!</strong>
-    </div>
-</c:if>
-
-<c:if WebService="${success}">
-    <div class="alert alert-success">
-        <button data-dismiss="alert" class="close" type="button">x</button>
-        <strong>Datei erfolgreich hochgeladen</strong>
-    </div>
-</c:if>
     </body>
 </html>
