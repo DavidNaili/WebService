@@ -43,18 +43,19 @@ public class AppController {
 		throws MagicParseException, MagicMatchNotFoundException, MagicException, IOException {
 			System.out.println("--------" + file.getOriginalFilename());
 
-	String mimeType = Magic.getMagicMatch(file.getBytes()).getMimeType();
-	if (!mimeType.equalsIgnoreCase(MimeTypes.CSV)){
-	model.addAttribute("mimeError", Boolean.TRUE);
-	return "mimeError";
-	}
-	else if (!file.getOriginalFilename().matches("^.*(image/png, image/apng, image/jpg, image/jpeg, image/pdf, image/gif," + 
+
+	if (!file.getOriginalFilename().matches("^.*(image/png, image/apng, image/jpg, image/jpeg, image/pdf, image/gif," + 
 												"application/vnd.ms-excel, application/zip, application/xml, text/css, text/html," + 
 												"text/php, text/plain, text/xml, audio/mpeg, audio/ogg)$")){
 		model.addAttribute("fileError", Boolean.TRUE);
 		return "fileError";
 	}
-	else if (!file.getOriginalFilename().matches("^.*(text/csv)$")){
+	String mimeType = Magic.getMagicMatch(file.getBytes()).getMimeType();
+	if (!mimeType.equalsIgnoreCase(MimeTypes.CSV)){
+	model.addAttribute("mimeError", Boolean.TRUE);
+	return "mimeError";
+	}
+	if (!file.getOriginalFilename().matches("^.*(text/csv)$")){
 	String baseDir = "F:/Projekt/WebService/src/main/resources/static/upload/";
 	model.addAttribute("success", Boolean.TRUE);
 	file.transferTo(new File(baseDir + file.getOriginalFilename()));
